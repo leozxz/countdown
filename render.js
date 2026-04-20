@@ -1,10 +1,11 @@
+const path = require('path');
 const { createCanvas, GlobalFonts } = require('@napi-rs/canvas');
 const GIFEncoder = require('gif-encoder-2');
 const { getTheme } = require('./themes');
 
-GlobalFonts.loadSystemFonts();
-const HAS_INTER = GlobalFonts.has('Inter');
-const FONT_FAMILY = HAS_INTER ? 'Inter, sans-serif' : 'sans-serif';
+GlobalFonts.registerFromPath(path.join(__dirname, 'fonts', 'Inter-Bold.ttf'));
+GlobalFonts.registerFromPath(path.join(__dirname, 'fonts', 'Inter-Black.ttf'));
+const FONT_FAMILY = 'Inter';
 
 const WIDTH = 600;
 const HEIGHT = 180;
